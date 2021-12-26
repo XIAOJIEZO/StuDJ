@@ -6,14 +6,26 @@
 </head>
 {% block content %}
 
+    {% if user_dict %}
 
-    <p style="display: inline">姓名：</p><input TYPE="text" readonly="readonly" name="userName" value={{ user_dict.name }}>
-    <p style="display: inline">手机：</p>
-    <input TYPE="text" readonly="readonly" name="phone_number" value={{ user_dict.phone_number }}>
-    <p style="display: inline">身份证：</p><input TYPE="text" readonly="readonly" name="ssn" value={{ user_dict.ssn }}>
+        <p style="display: inline">姓名：</p>
+        <input TYPE="text" readonly="readonly" name="userName" value={{ user_dict.name }}>
+        <p style="display: inline">手机：</p>
+        <input TYPE="text" readonly="readonly" name="phone_number" value={{ user_dict.phone_number }}>
+        <p style="display: inline">身份证：</p><input TYPE="text" readonly="readonly" name="ssn" value={{ user_dict.ssn }}>
+
+    {% else %}
+        <p style="display: inline">姓名：</p><input TYPE="text" readonly="readonly" name="userName">
+        <p style="display: inline">手机：</p>
+        <input TYPE="text" readonly="readonly" name="phone_number">
+        <p style="display: inline">身份证：</p><input TYPE="text" readonly="readonly" name="ssn">
+
+    {% endif %}
+
+
     <form action="/generate_user_information/" method="post" style="display: inline">
-    {% csrf_token %}
-        <input TYPE="submit" readonly="readonly" name="gen">
+        {% csrf_token %}
+        <input TYPE="submit" readonly="readonly" name="sub">
     </form>
 
 
