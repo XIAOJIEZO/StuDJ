@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+<head>
+
+    <title>生成用户信息</title>
+
+</head>
+{% block content %}
+
+
+    <p style="display: inline">姓名：</p><input TYPE="text" readonly="readonly" name="userName" value={{ user_dict.name }}>
+    <p style="display: inline">手机：</p>
+    <input TYPE="text" readonly="readonly" name="phone_number" value={{ user_dict.phone_number }}>
+    <p style="display: inline">身份证：</p><input TYPE="text" readonly="readonly" name="ssn" value={{ user_dict.ssn }}>
+    <form action="/generate_user_information/" method="post" style="display: inline">
+    {% csrf_token %}
+        <input TYPE="submit" readonly="readonly" name="gen">
+    </form>
+
+
+{% endblock %}

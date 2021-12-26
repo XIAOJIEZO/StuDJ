@@ -1,0 +1,127 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{% static "images/favicon.png" %}" type="image/png">
+    <title></title>
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="{% static "plugins/jquery-ui/jquery-ui.min.css" %}" rel="stylesheet"/>
+    <!-- END PAGE LEVEL STYLES -->
+    <link href="{% static "css/icons.css" %}" rel="stylesheet">
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <link href="{% static "css/responsive.css" %}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+          <script src= "{% static "js/html5shiv.min.js" %}"></script>
+          <script src= "{% static "js/respond.min.js" %}"></script>
+    <![endif]-->
+
+</head>
+
+<body class="sticky-header">
+
+
+<!--Start left side Menu-->
+<div class="left-side sticky-left-side">
+
+    <!--logo-->
+    <div class="logo">
+        <a href="/index"><img src="{% static "images/logo.png" %}" alt=""></a>
+    </div>
+
+    <div class="logo-icon text-center">
+        <a href="index"><img src="{% static "images/logo-icon.png" %}" alt=""></a>
+    </div>
+    <!--logo-->
+
+    <div class="left-side-inner">
+        <!--Sidebar nav-->
+        <!-- header section start-->
+        <div class="header-section">
+
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+
+            <form class="searchform">
+                <input type="text" class="form-control" name="keyword" placeholder="Search here..."/>
+            </form>
+
+
+        </div>
+
+        <ul class="nav nav-pills nav-stacked custom-nav">
+            <li class="menu-list"><a href="index"><i class="icon-home"></i> <span>工具</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="/ClearMobileLimit">清除短信验证码</a></li>
+                </ul>
+
+                <ul class="sub-menu-list">
+                    <li><a href="/generate_user_information">生成用户信息</a></li>
+                </ul>
+            </li>
+
+
+            </li>
+
+        </ul>
+        <!--End sidebar nav-->
+
+    </div>
+</div>
+<!--End left side menu-->
+
+
+<!-- main content start-->
+<div class="main-content" style="height: 878px">
+
+    <!--body wrapper start-->
+    <div class="wrapper">
+        <!--Start Page Title-->
+               <div class="page-title-box">
+                 </div>
+                  <!--End Page Title-->
+
+        <!--Start Page Title-->
+        {% block content %}
+
+        {% endblock %}
+
+    </div>
+    <!-- End row-->
+
+
+    </div>
+    <!-- End row-->
+
+</div>
+<!-- End Wrapper-->
+
+
+<!--Begin core plugin -->
+<script src="{% static "js/jquery.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "plugins/moment/moment.js" %}"></script>
+<script src="{% static "plugins/moment/moment.js" %}"></script>
+<script src="{% static "js/jquery.nicescroll.js" %}"></script>
+<script src="{% static "js/functions.js" %}"></script>
+<!-- End core plugin -->
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="{% static "plugins/chart-js/Chart.js" %}"></script>
+<script src="{% static "pages/chartjs-custom.js" %}"></script>
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+
+
+</body>
+
+</html>

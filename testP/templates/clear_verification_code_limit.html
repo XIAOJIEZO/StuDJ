@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+<head>
+
+    <title>清除验证码限制</title>
+
+</head>
+{% block content %}
+<form action="/ClearMobileLimit/" method="post">
+    {% csrf_token %}
+    <p style="display: inline">手机号：</p>
+    <input type="text" name="mobile">
+    <input type="submit" value="清除">
+</form>
+
+{% endblock %}
