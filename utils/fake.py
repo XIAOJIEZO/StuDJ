@@ -26,6 +26,6 @@ class Users(object):
     #         f.writelines(self.generate_users())
 
 
-if __name__ == '__main__':
-    users = Users().generate_users()
+# if __name__ == '__main__':
+#     users = Users().generate_users()
 #     users.write_user()
