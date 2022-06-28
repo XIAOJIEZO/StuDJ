@@ -13,6 +13,7 @@ class APIResponse(Response):
             'code': '0',
             'msg': data_msg,
             'data': data_status,
+            # 'total': len(data_status)
         }
         # data的响应数据体
         # results可能是False、0等数据，这些数据某些情况下也会作为合法数据返回

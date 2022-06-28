@@ -18,5 +18,5 @@ class LybSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Lyb
         # fields = '__all__'
-        fields = ('title', 'author', 'content')
+        fields = ('id', 'title', 'author', 'content')
 

@@ -30,7 +30,7 @@ from Lyb.Views.Fakeviews import fakeinfo
 from Lyb.Views import Lybviews
 from Lyb.Views.LybView2 import lyb_list, lyb_detail
 
-lybrouter = routers.DefaultRouter()
+lybrouter = routers.SimpleRouter()
 lybrouter.register(r'lyb', Views.Lybviews.LybViewSet)
 lybrouter.register(r'lyb2', Views.Lybviews.LybViewSet2)
 
@@ -74,9 +74,9 @@ urlpatterns = [
     url(r'lyb_updata', lyb_updata),
     url(r'fakeinfo', fakeinfo),
 
-    url(r'get', LybDetailView.get),
-    url(r'put', LybDetailView.put),
-    url(r'delete', LybDetailView.delete),
     url(r'list', LybDetailView.list),
+    url(r'updata', LybDetailView.updata),
+    url(r'delete', LybDetailView.delete),
+    url(r'detail', LybDetailView.detail),
 
 ]

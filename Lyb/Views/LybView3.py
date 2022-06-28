@@ -16,7 +16,6 @@ def lyb_list3(request):
         serializer = LybSerializer(LybObjs, many=True)
         return APIResponse(serializer.data)
 
-
 @csrf_exempt
 @api_view(['GET'])
 def lyb_detail3(request, pk):
@@ -56,7 +55,7 @@ class LybDetailView(APIView):
     # 单条数据的查看
     @csrf_exempt
     @api_view(['POST'])
-    def get(request):
+    def detail(request):
 
         try:
             lyb = Lyb.objects.filter(pk=request.data["id"])
@@ -72,7 +71,7 @@ class LybDetailView(APIView):
     # 单条数据的更新
     @csrf_exempt
     @api_view(['POST'])
-    def put(request):
+    def updata(request):
 
         try:
             lyb = Lyb.objects.filter(pk=request.data["id"])
