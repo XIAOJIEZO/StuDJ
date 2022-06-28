@@ -22,17 +22,16 @@ from rest_framework import routers
 
 import testP.api.generate_user_information
 import testP.api.generate_user_information2
+from Lyb.Views.Lybviews import LybDetailView
 from testP.api import clear_verification_code_limit, index
 
 from Lyb import Views
-from Lyb.Views.LybView3 import lyb_detail3, lyb_list3, lyb_updata, LybDetailView
 from Lyb.Views.Fakeviews import fakeinfo
 from Lyb.Views import Lybviews
-from Lyb.Views.LybView2 import lyb_list, lyb_detail
 
-lybrouter = routers.SimpleRouter()
-lybrouter.register(r'lyb', Views.Lybviews.LybViewSet)
-lybrouter.register(r'lyb2', Views.Lybviews.LybViewSet2)
+router = routers.SimpleRouter()
+router.register(r'lyb', Views.Lybviews.LybViewSet)
+router.register(r'lyb2', Views.Lybviews.LybViewSet2)
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -64,14 +63,14 @@ urlpatterns = [
     # url(r'^$', TemplateView.as_view(template_name="index.html")),
     # url('userInfo', userinfo),
 
-    url(r'api/', include(lybrouter.urls)),
+    url(r'api/', include(router.urls)),
 
-    url(r'lyb_list2', lyb_list),
-    url(r'^lyb_detail2/(?P<pk>[0-9]+)/$', lyb_detail),
-
-    url(r'lyb_list3', lyb_list3),
-    url(r'^lyb_detail3/(?P<pk>[0-9]+)/$', lyb_detail3),
-    url(r'lyb_updata', lyb_updata),
+    # url(r'lyb_list2', lyb_list),
+    # url(r'^lyb_detail2/(?P<pk>[0-9]+)/$', lyb_detail),
+    #
+    # url(r'lyb_list3', lyb_list3),
+    # url(r'^lyb_detail3/(?P<pk>[0-9]+)/$', lyb_detail3),
+    # url(r'lyb_updata', lyb_updata),
     url(r'fakeinfo', fakeinfo),
 
     url(r'list', LybDetailView.list),
