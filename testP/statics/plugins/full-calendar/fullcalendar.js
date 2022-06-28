@@ -101,10 +101,10 @@ function mergeOptions() {
 // Given options specified for the calendar's constructor, massages any legacy options into a non-legacy form.
 // Converts View-Option-Hashes into the View-Specific-Options format.
 function massageOverrides(input) {
-	var overrides = { views: input.views || {} }; // the output. ensure a `views` hash
+	var overrides = { views: input.views || {} }; // the output. ensure a `Views` hash
 	var subObj;
 
-	// iterate through all option override properties (except `views`)
+	// iterate through all option override properties (except `Views`)
 	$.each(input, function(name, val) {
 		if (name != 'views') {
 
@@ -124,7 +124,7 @@ function massageOverrides(input) {
 						if (!overrides.views[subName]) { // ensure the view-target entry exists
 							overrides.views[subName] = {};
 						}
-						overrides.views[subName][name] = subVal; // record the value in the `views` object
+						overrides.views[subName][name] = subVal; // record the value in the `Views` object
 					}
 					else { // a non-View-Option-Hash property
 						if (!subObj) {
@@ -2689,7 +2689,7 @@ var RowRenderer = Class.extend({
 
 
 	// Renders the HTML for a row, leveraging custom cell-HTML-renderers based on the `rowType`.
-	// Also applies the "intro" and "outro" cells, which are specified by the subclass and views.
+	// Also applies the "intro" and "outro" cells, which are specified by the subclass and Views.
 	// `row` is an optional row number.
 	rowHtml: function(rowType, row) {
 		var renderCell = this.getHtmlRenderer('cell', rowType);
@@ -6540,7 +6540,7 @@ function compareForwardSlotSegs(seg1, seg2) {
 
 ;;
 
-/* An abstract class from which other views inherit from
+/* An abstract class from which other Views inherit from
 ----------------------------------------------------------------------------------------------------------------------*/
 
 var View = fc.View = Class.extend({
@@ -7503,7 +7503,7 @@ var Calendar = fc.Calendar = fc.CalendarBase = Class.extend({
 
 
 	// Given a duration singular unit, like "week" or "day", finds a matching view spec.
-	// Preference is given to views that have corresponding buttons.
+	// Preference is given to Views that have corresponding buttons.
 	getUnitViewSpec: function(unit) {
 		var viewTypes;
 		var i;
@@ -7511,9 +7511,9 @@ var Calendar = fc.Calendar = fc.CalendarBase = Class.extend({
 
 		if ($.inArray(unit, intervalUnits) != -1) {
 
-			// put views that have buttons first. there will be duplicates, but oh well
+			// put Views that have buttons first. there will be duplicates, but oh well
 			viewTypes = this.header.getViewsWithButtons();
-			$.each(fc.views, function(viewType) { // all views
+			$.each(fc.views, function(viewType) { // all Views
 				viewTypes.push(viewType);
 			});
 
@@ -9983,7 +9983,7 @@ function backupEventDates(event) {
 
 ;;
 
-/* An abstract class for the "basic" views, as well as month view. Renders one or more rows of day cells.
+/* An abstract class for the "basic" Views, as well as month view. Renders one or more rows of day cells.
 ----------------------------------------------------------------------------------------------------------------------*/
 // It is a manager for a DayGrid subcomponent, which does most of the heavy lifting.
 // It is responsible for managing width/height.
@@ -10019,7 +10019,7 @@ var BasicView = fcViews.basic = View.extend({
 	computeRange: function(date) {
 		var range = View.prototype.computeRange.call(this, date); // get value from the super-method
 
-		// year and month views should be aligned with weeks. this is already done for week
+		// year and month Views should be aligned with weeks. this is already done for week
 		if (/year|month/.test(range.intervalUnit)) {
 			range.start.startOf('week');
 			range.start = this.skipHiddenDays(range.start);
@@ -10369,7 +10369,7 @@ fcViews.basicDay = {
 };
 ;;
 
-/* An abstract class for all agenda-related views. Displays one more columns with time slots running vertically.
+/* An abstract class for all agenda-related Views. Displays one more columns with time slots running vertically.
 ----------------------------------------------------------------------------------------------------------------------*/
 // Is a manager for the TimeGrid subcomponent and possibly the DayGrid subcomponent (if allDaySlot is on).
 // Responsible for managing width/height.

@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0((l5**-^t9wowlu%y#60f#^om2%rewkcy4a*mojv1+0dt-@)+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['10.21.23.168', '127.0.0.1', '172.16.40.31']
 
@@ -35,7 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'testP'
+    'rest_framework',
+    'testP',
+    'Lyb'
 ]
 
 MIDDLEWARE = [
@@ -46,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # add for vue
 ]
 
 ROOT_URLCONF = 'djangoProject.urls'
@@ -53,8 +56,8 @@ ROOT_URLCONF = 'djangoProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        # 'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'app/dist'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,8 +77,19 @@ WSGI_APPLICATION = 'djangoProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+
+        'ENGINE': 'django.db.backends.mysql',  # 数据库引擎
+        'NAME': 'Lyb',  # 数据库名称
+        'USER': 'root',  # 数据库登录用户名
+        'PASSWORD': '123456',  # 密码
+        'HOST': '127.0.0.1',  # 数据库主机IP，如保持默认，则为127.0.0.1
+        'PORT': 3306,
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8'
+        }
     }
 }
 
@@ -115,7 +129,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'  # 别名
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "testP/statics"),
+    # os.path.join(BASE_DIR, "testP/statics"),
+    os.path.join(BASE_DIR, "app/dist/static"),
+
 ]
 
 # Default primary key field type
@@ -123,3 +139,12 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CORS_ORIGIN_ALLOW_ALL = True  # add for vue
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.renderers.JSONRenderer',
+#         'rest_framework.renderers.BrowsableAPIRenderer',
+#     ],
+#     'PAGE_SIZE': 2
+# }
