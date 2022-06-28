@@ -67,7 +67,7 @@ class LybDetailView(APIView):
             return APIResponse(data_msg='id matching query does not exist.', status=status.HTTP_200_OK)
 
         except Exception as e:
-            return APIResponse(data_msg=str(e), status=status.HTTP_200_O)
+            return APIResponse(data_msg=str(e), status=status.HTTP_200_OK)
 
     # 单条数据的更新
     @csrf_exempt
