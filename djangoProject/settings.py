@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'drf_yasg',
     'rest_framework',
     'testP',
     'Lyb'
@@ -79,7 +80,6 @@ DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
-
         'ENGINE': 'django.db.backends.mysql',  # 数据库引擎
         'NAME': 'Lyb',  # 数据库名称
         'USER': 'root',  # 数据库登录用户名
