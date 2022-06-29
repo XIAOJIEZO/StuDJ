@@ -1,3 +1,3 @@
 from django.contrib import admin
 
-# Register your Lybmodels here.
+# Register your FakeModels here.

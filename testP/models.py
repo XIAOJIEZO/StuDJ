@@ -1,3 +1,3 @@
 from django.db import models
 
-# Create your Lybmodels here.
+# Create your FakeModels here.
