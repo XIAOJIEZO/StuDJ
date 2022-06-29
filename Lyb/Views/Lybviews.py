@@ -129,8 +129,8 @@ class LybDetailView(APIView):
 
             return APIResponse(data_msg='id matching query does not exist.', status=status.HTTP_200_OK)
 
-        except KeyError:
-            return APIResponse(data_msg='id matching query does not exist.', status=status.HTTP_200_OK)
+        except KeyError as e:
+            return APIResponse(data_msg=str(e), status=status.HTTP_200_OK)
 
         except Exception as e:
             return APIResponse(data_msg=str(e), status=status.HTTP_200_OK)

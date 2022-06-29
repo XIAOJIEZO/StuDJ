@@ -3,8 +3,8 @@ from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.decorators import api_view, action
 
-from Lyb.Lybmodels import fakeobj
-from Lyb.Serializer.FakeSerializer import FakeSerializer
+from Fake.Lybmodels import fakeobj
+from Fake.Serializer.FakeSerializer import FakeSerializer
 from utils.apiresponse import APIResponse
 
 request_body = openapi.Schema(type=openapi.TYPE_OBJECT,
