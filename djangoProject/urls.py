@@ -23,6 +23,7 @@ import testP.api.generate_user_information
 import testP.api.generate_user_information2
 from testP.api import clear_verification_code_limit, index
 
+
 schema_view = get_schema_view(
     openapi.Info(
         title='API接口文档',
@@ -53,8 +54,8 @@ urlpatterns = [
     # url(r'^$', TemplateView.as_view(template_name="index.html")),
     # url(r'^lyb_detail2/(?P<pk>[0-9]+)/$', lyb_detail),
 
-    url(r'fake/', include("Fake.urls")),
+    path(r'fake/', include("Fake.urls")),
 
-    url(r'lyb/', include("Lyb.urls"))
+    path(r'lyb/', include("Lyb.urls"))
 
 ]

@@ -4,22 +4,21 @@
 # @Author  : XIAOJIEZI
 
 from django.conf.urls import url
-from django.urls import include
-from rest_framework import routers
+from django.urls import include, path
 
-from Lyb import Views
 from Lyb.Views.Lybviews import LybDetailView
-router = routers.SimpleRouter()
-router.register(r'lyb', Views.Lybviews.LybViewSet)
-router.register(r'lyb2', Views.Lybviews.LybViewSet2)
+from Lyb.Views.Lybviews2 import LybViewSetList
+
+lyb_list = LybViewSetList.as_view({
+    'post': 'lyb_list',
+})
 
 urlpatterns = [
 
-    url(r'', include(router.urls)),
-
-    url(r'list', LybDetailView.list),
-    url(r'updata', LybDetailView.updata),
-    url(r'delete', LybDetailView.delete),
-    url(r'detail', LybDetailView.detail),
+    path(r'updata', LybDetailView.updata),
+    path(r'delete', LybDetailView.delete),
+    path(r'detail', LybDetailView.detail),
+    path(r'list', LybDetailView.list),
+    url(r'list1', lyb_list, name='lyb_list'),
 
 ]

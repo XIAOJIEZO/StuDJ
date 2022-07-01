@@ -29,3 +29,11 @@ class Users(object):
 # if __name__ == '__main__':
 #     users = Users().generate_users()
 #     users.write_user()
+
+
+
+class FakeObj(object):
+
+    def __init__(self, locale='zh_CN'):
+
+        return Faker(locale)
