@@ -6,13 +6,13 @@ from rest_framework.response import Response
 
 
 class APIResponse(Response):
-    def __init__(self, data_status="", data_msg='ok', results=None
-                 , http_status=None, headers=None, exception=False, **kwargs):
+    def __init__(self, data="", data_msg='ok', results=None
+                 , http_status=None, headers=None, exception=False, code=None, **kwargs):
         # data的初始状态：状态码与状态信息
         data = {
-            'code': '0',
+            'code': code,
             'msg': data_msg,
-            'data': data_status,
+            'data': data,
             # 'total': len(data_status)
         }
         # data的响应数据体
