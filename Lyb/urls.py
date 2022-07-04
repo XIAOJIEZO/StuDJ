@@ -16,7 +16,12 @@ lyb_list = LybViewSetList.as_view({
 })
 
 lyb_detail = LybViewSetList.as_view({
-    'post': 'retrieve',
+    'post': 'lyb_detail',
+    # 'post': 'lyb_detail',
+})
+
+lyb_update = LybViewSetList.as_view({
+    'post': 'lyb_update',
     # 'post': 'lyb_detail',
 })
 
@@ -31,6 +36,7 @@ urlpatterns = [
     # path(r'list', LybDetailView.list),
     url(r'list1', lyb_list, name='lyb_list'),
     # url(r'^', include(router.urls)),
-    url("detail1", lyb_detail, name='lyb_detail')
+    url("detail1", lyb_detail, name='lyb_detail'),
+    url("update", lyb_update, name='lyb_update')
 
 ]

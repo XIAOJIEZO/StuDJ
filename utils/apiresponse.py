@@ -6,14 +6,14 @@ from rest_framework.response import Response
 
 
 class APIResponse(Response):
-    def __init__(self, data="", data_msg='ok', results=None
+    def __init__(self, data=None, data_msg=None, results=None
                  , http_status=None, headers=None, exception=False, code=None, **kwargs):
+
         # data的初始状态：状态码与状态信息
         data = {
             'code': code,
             'msg': data_msg,
             'data': data,
-            # 'total': len(data_status)
         }
         # data的响应数据体
         # results可能是False、0等数据，这些数据某些情况下也会作为合法数据返回
