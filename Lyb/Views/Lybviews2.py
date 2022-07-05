@@ -15,6 +15,7 @@ class LybViewSetList(LybModelViewSet):
     serializer_class = LybSerializer
 
     def lyb_list(self, request, *args, **kwargs):
+
         self.queryset = self.queryset.all().order_by('-id')
         self.pagination_class = CarPageNumberPagination
         self.pagination_class.page_size = request.data.get('pagesize')
@@ -26,4 +27,7 @@ class LybViewSetList(LybModelViewSet):
         return self.retrieve(request, *args, **kwargs)
 
     def lyb_update(self, request, *args, **kwargs):
-        return self.test(request, *args, **kwargs)
+        return self.update(request, *args, **kwargs)
+
+    def lyb_delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)

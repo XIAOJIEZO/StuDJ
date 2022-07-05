@@ -15,28 +15,19 @@ lyb_list = LybViewSetList.as_view({
     # 'post': 'lyb_detail',
 })
 
-lyb_detail = LybViewSetList.as_view({
-    'post': 'lyb_detail',
-    # 'post': 'lyb_detail',
-})
-
-lyb_update = LybViewSetList.as_view({
-    'post': 'lyb_update',
-    # 'post': 'lyb_detail',
-})
-
 # router = DefaultRouter()
 # router.register(r'snippets', LybViewSetList)
 
 urlpatterns = [
 
-    # path(r'updata', LybDetailView.updata),
-    # path(r'delete', LybDetailView.delete),
-    # path(r'detail', LybDetailView.detail),
-    # path(r'list', LybDetailView.list),
+    path(r'updata', LybDetailView.updata),
+    path(r'delete', LybDetailView.delete),
+    path(r'detail', LybDetailView.detail),
+    path(r'list', LybDetailView.list),
     url(r'list1', lyb_list, name='lyb_list'),
     # url(r'^', include(router.urls)),
-    url("detail1", lyb_detail, name='lyb_detail'),
-    url("update", lyb_update, name='lyb_update')
+    path("detail1", LybViewSetList.as_view({'post': 'lyb_detail'}), name='lyb_detail'),
+    path("update1", LybViewSetList.as_view({'post': 'lyb_update'}), name='lyb_update'),
+    path("delete1", LybViewSetList.as_view({'post': 'lyb_delete'}), name='lyb_delete')
 
 ]

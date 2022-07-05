@@ -118,7 +118,7 @@ class LybDetailView(APIView):
 
             if lyb.exists() and lyb_first.is_delete == False:
                 # book = Lyb.objects.filter(pk=request.data["id"]).delete()
-                lyb_first.is_delet = True
+                lyb_first.is_delete = True
                 lyb_first.save()
                 return APIResponse("successfully deleted", status=status.HTTP_200_OK)
 
