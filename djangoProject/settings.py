@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-0((l5**-^t9wowlu%y#60f#^om2%rewkcy4a*mojv1+0dt-@)+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.21.23.168', '127.0.0.1', '172.16.40.31']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'Lyb',  # 数据库名称
         'USER': 'root',  # 数据库登录用户名
         'PASSWORD': '123456',  # 密码
-        'HOST': '172.17.0.2',  # 数据库主机IP，如保持默认，则为127.0.0.1
+        'HOST': '172.17.0.3',
         # 'HOST': '127.0.0.1',  # 数据库主机IP，如保持默认，则为127.0.0.1
         'PORT': 3306,
         'OPTIONS': {
