@@ -8,5 +8,8 @@ from rest_framework import serializers
 class FakeSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=50)
     ssn = serializers.CharField(max_length=50)
-    phone_number = serializers.CharField(max_length=50)
+    PhoneNumber = serializers.CharField(max_length=50)
+    bankName = serializers.CharField(max_length=50)
+    BankCardNumber = serializers.CharField(max_length=50)
+
 

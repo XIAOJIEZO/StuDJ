@@ -5,15 +5,36 @@
 
 from faker import Faker
 
+from utils.BankCardNumber import GetBankCardNumber
+
 
 class FakeInfo(object):
 
-    def __init__(self, locale='zh_CN'):
-        try:
-            fake = Faker(locale=locale)
-            self.name = fake.name()
-            self.ssn = fake.ssn()
-            self.phone_number = fake.phone_number()
+    def __init__(self, bankName, locale='zh_CN'):
+        self.locale = locale
+        self.name = ""
+        self.ssn = ""
+        self.PhoneNumber = ""
+        self.address = ""
+        self.BankCardNumber = ""
 
-        except AttributeError:
-            return
+        self.bankName = bankName
+
+
+        # self.get_BankCardNumber = lambda bankName: GetBankCardNumber().getBankCardNumber(bankName=self.bankName)
+
+        self.test()
+
+    #
+    def get_BankCardNumber(self):
+        return GetBankCardNumber().getBankCardNumber(bankName=self.bankName)
+
+    def get_fake(self):
+        return Faker(locale=self.locale)
+
+
+    def test(self):
+        self.name = self.get_fake().name()
+        self.ssn = self.get_fake().ssn()
+        self.PhoneNumber = self.get_fake().phone_number()
+        self.BankCardNumber = self.get_BankCardNumber()

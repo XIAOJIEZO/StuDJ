@@ -21,12 +21,18 @@ request_body = openapi.Schema(type=openapi.TYPE_OBJECT,
 @api_view(['POST'])
 def fakeinfo(request):
     locale = request.data.get('locale')
+    bankName = request.data.get('bankName')
+
+    if bankName:
+        pass
+    else:
+        bankName = '招商银行'
 
     if locale:
-        fake = fakeobj.FakeInfo(locale)
+        fake = fakeobj.FakeInfo(locale=locale, bankName=bankName)
         serializer = FakeSerializer(fake)
         return APIResponse(data=serializer.data, data_msg=status.HTTP_200_OK, code='ok')
 
-    fake = fakeobj.FakeInfo()
+    fake = fakeobj.FakeInfo(bankName=bankName)
     serializer = FakeSerializer(fake)
     return APIResponse(data=serializer.data, data_msg=status.HTTP_200_OK, code='ok')
