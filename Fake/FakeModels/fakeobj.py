@@ -4,37 +4,35 @@
 # @Author  : XIAOJIEZI
 
 from faker import Faker
-
 from utils.BankCardNumber import GetBankCardNumber
 
 
 class FakeInfo(object):
 
     def __init__(self, bankName, locale='zh_CN'):
+
         self.locale = locale
+        self.bankName = bankName
         self.name = ""
         self.ssn = ""
         self.PhoneNumber = ""
         self.address = ""
         self.BankCardNumber = ""
 
-        self.bankName = bankName
-
-
-        # self.get_BankCardNumber = lambda bankName: GetBankCardNumber().getBankCardNumber(bankName=self.bankName)
+        self.getBankCardNumber = lambda: GetBankCardNumber().getBankCardNumber(bankName=self.bankName)
+        self.getfake = lambda: Faker(locale=self.locale)
 
         self.test()
 
     #
-    def get_BankCardNumber(self):
-        return GetBankCardNumber().getBankCardNumber(bankName=self.bankName)
+    # def getBankCardNumber(self):
+    #     return GetBankCardNumber().getBankCardNumber(bankName=self.bankName)
 
-    def get_fake(self):
-        return Faker(locale=self.locale)
-
+    # def getfake(self):
+    #     return Faker(locale=self.locale)
 
     def test(self):
-        self.name = self.get_fake().name()
-        self.ssn = self.get_fake().ssn()
-        self.PhoneNumber = self.get_fake().phone_number()
-        self.BankCardNumber = self.get_BankCardNumber()
+        self.name = self.getfake().name()
+        self.ssn = self.getfake().ssn()
+        self.PhoneNumber = self.getfake().phone_number()
+        self.BankCardNumber = self.getBankCardNumber()

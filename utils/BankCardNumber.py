@@ -55,8 +55,3 @@ class GetBankCardNumber(object):
         self.getLastcode(self.binNum + self.midNum)
         self.bankCardNumber = self.binNum + self.midNum + self.lastCode
         return self.bankCardNumber
-
-#
-# if __name__ == '__main__':
-#     f = GetBankCardNumber()
-#     print(f.getBankCardNumber())
