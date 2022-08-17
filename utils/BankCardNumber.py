@@ -30,7 +30,6 @@ class GetBankCardNumber(object):
         return self.midNum
 
     def getLastcode(self, bankNumNoLastcode):
-        print(bankNumNoLastcode)
         sum = 0
         for i in bankNumNoLastcode[-1::-2]:
             for m in str(int(i) * 2):

@@ -20,6 +20,7 @@ class FakeInfo(object):
         self.BankCardNumber = ""
         self.company = ""
         self.email = ""
+        self.job = ""
 
         self.getBankCardNumber = lambda: GetBankCardNumber().getBankCardNumber(bankName=self.bankName)
         self.getfake = lambda: Faker(locale=self.locale)
@@ -32,7 +33,6 @@ class FakeInfo(object):
 
     # def getfake(self):
     #     return Faker(locale=self.locale)
-
     def test(self):
         self.name = self.getfake().name()
         self.ssn = self.getfake().ssn()
