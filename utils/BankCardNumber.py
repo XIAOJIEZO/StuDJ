@@ -20,14 +20,29 @@ class GetBankCardNumber(object):
             self.binNum = bankToBin[tempBank]
             return self.binNum, tempBank
 
-    def getMidNum(self):
-        tempMidnum = ""
-        for x in range(9):
-            tempMidnum = tempMidnum + str(random.randint(0, 9))
-            x = x
-        self.midNum = tempMidnum
+    def getMidNum(self, bankName):
 
-        return self.midNum
+        bankList = ('工商银行', '中国银行')
+
+        tempMidnum = ""
+
+        if bankName in bankList:
+
+            for x in range(9):
+                tempMidnum = tempMidnum + str(random.randint(0, 12))
+                x = x
+            self.midNum = tempMidnum
+
+            return self.midNum
+
+        else:
+
+            for x in range(9):
+                tempMidnum = tempMidnum + str(random.randint(0, 9))
+                x = x
+            self.midNum = tempMidnum
+
+            return self.midNum
 
     def getLastcode(self, bankNumNoLastcode):
         sum = 0
@@ -46,7 +61,7 @@ class GetBankCardNumber(object):
 
         if bankName:
             self.getBinNum(bankName)
-            self.getMidNum()
+            self.getMidNum(bankName)
 
         else:
             self.getBinNum(bankName)
