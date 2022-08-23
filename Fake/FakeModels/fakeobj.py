@@ -15,9 +15,9 @@ class FakeInfo(object):
         self.bankName = bankName
         self.name = ""
         self.ssn = ""
-        self.PhoneNumber = ""
+        self.phoneNumber = ""
         self.address = ""
-        self.BankCardNumber = ""
+        self.bankCardNumber = ""
         self.company = ""
         self.email = ""
         self.job = ""
@@ -39,6 +39,6 @@ class FakeInfo(object):
         self.address = self.getfake().address()
         self.company = self.getfake().company()
         self.email = self.getfake().email()
-        self.PhoneNumber = self.getfake().phone_number()
-        self.BankCardNumber = self.getBankCardNumber()
+        self.phoneNumber = self.getfake().phone_number()
+        self.bankCardNumber = self.getBankCardNumber()
 
