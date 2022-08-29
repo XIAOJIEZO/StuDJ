@@ -40,7 +40,7 @@ class FakeInfo(object):
         idCard = IdNumber.generate_id()
         self.name = self.getfake().name()
         # self.ssn = self.getfake().ssn()
-        self.ssn = idCard
+        self.idCard = idCard
         # self.address = self.getfake().address()
         self.address = IdNumber(idCard).get_area_name()
         # self.birthday = IdNumber(idCard).birth_day()
