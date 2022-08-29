@@ -5,6 +5,7 @@
 
 from faker import Faker
 from utils.BankCardNumber import GetBankCardNumber
+from utils.id_number_util.identity import IdNumber
 
 
 class FakeInfo(object):
@@ -21,6 +22,8 @@ class FakeInfo(object):
         self.company = ""
         self.email = ""
         self.job = ""
+        self.birthday = ""
+        self.age = ""
 
         self.getBankCardNumber = lambda: GetBankCardNumber().getBankCardNumber(bankName=self.bankName)
         self.getfake = lambda: Faker(locale=self.locale)
@@ -34,9 +37,14 @@ class FakeInfo(object):
     # def getfake(self):
     #     return Faker(locale=self.locale)
     def test(self):
+        idCard = IdNumber.generate_id()
         self.name = self.getfake().name()
-        self.ssn = self.getfake().ssn()
-        self.address = self.getfake().address()
+        # self.ssn = self.getfake().ssn()
+        self.ssn = idCard
+        # self.address = self.getfake().address()
+        self.address = IdNumber(idCard).get_area_name()
+        self.birthday = IdNumber(idCard).birth_day()
+        self.age = IdNumber(idCard).get_age()
         self.company = self.getfake().company()
         self.email = self.getfake().email()
         self.phoneNumber = self.getfake().phone_number()
