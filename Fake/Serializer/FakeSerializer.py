@@ -9,7 +9,7 @@ class FakeSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=50)
     phoneNumber = serializers.CharField(max_length=50)
     ssn = serializers.CharField(max_length=50)
-    birthday = serializers.CharField(max_length=50)
+    # birthday = serializers.CharField(max_length=50)
     age = serializers.CharField(max_length=50)
     address = serializers.CharField(max_length=50)
     email = serializers.CharField(max_length=50)

@@ -43,7 +43,7 @@ class FakeInfo(object):
         self.ssn = idCard
         # self.address = self.getfake().address()
         self.address = IdNumber(idCard).get_area_name()
-        self.birthday = IdNumber(idCard).birth_day()
+        # self.birthday = IdNumber(idCard).birth_day()
         self.age = IdNumber(idCard).get_age()
         self.company = self.getfake().company()
         self.email = self.getfake().email()
