@@ -24,6 +24,7 @@ class FakeInfo(object):
         self.job = ""
         self.birthday = ""
         self.age = ""
+        self.idCard = ""
 
         self.getBankCardNumber = lambda: GetBankCardNumber().getBankCardNumber(bankName=self.bankName)
         self.getfake = lambda: Faker(locale=self.locale)
@@ -43,7 +44,7 @@ class FakeInfo(object):
         self.idCard = idCard
         # self.address = self.getfake().address()
         self.address = IdNumber(idCard).get_area_name()
-        # self.birthday = IdNumber(idCard).birth_day()
+        self.birthday = IdNumber(idCard).get_birthday()
         self.age = IdNumber(idCard).get_age()
         self.company = self.getfake().company()
         self.email = self.getfake().email()
