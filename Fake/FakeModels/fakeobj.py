@@ -10,7 +10,7 @@ from utils.id_number_util.identity import IdNumber
 
 class FakeInfo(object):
 
-    def __init__(self, bankName, locale='zh_CN'):
+    def __init__(self, bankName , locale='zh_CN'):
 
         self.locale = locale
         self.bankName = bankName
@@ -29,7 +29,7 @@ class FakeInfo(object):
         self.getBankCardNumber = lambda: GetBankCardNumber().getBankCardNumber(bankName=self.bankName)
         self.getfake = lambda: Faker(locale=self.locale)
 
-        self.test()
+        self.run()
 
     #
     # def getBankCardNumber(self):
@@ -37,7 +37,7 @@ class FakeInfo(object):
 
     # def getfake(self):
     #     return Faker(locale=self.locale)
-    def test(self):
+    def run(self):
         idCard = IdNumber.generate_id()
         self.name = self.getfake().name()
         # self.ssn = self.getfake().ssn()

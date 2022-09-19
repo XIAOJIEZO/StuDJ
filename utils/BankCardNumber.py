@@ -22,7 +22,7 @@ class GetBankCardNumber(object):
 
     def getMidNum(self, bankName):
 
-        bankList = ('工商银行', '中国银行')
+        bankList = ('工商银行', '中国银行', '交通银行')
 
         tempMidnum = ""
 
