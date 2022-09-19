@@ -21,7 +21,6 @@ from drf_yasg.views import get_schema_view
 
 import testP.api.generate_user_information
 import testP.api.generate_user_information2
-from Fake.tests import test777
 from testP.api import clear_verification_code_limit, index
 from django.views.generic import TemplateView
 
@@ -58,8 +57,6 @@ urlpatterns = [
     path(r'fake/', include("Fake.urls")),
 
     path(r'lyb/', include("Lyb.urls")),
-
-    path(r'test/', test777),
 
     url(r'^$', TemplateView.as_view(template_name="index.html")),
 
