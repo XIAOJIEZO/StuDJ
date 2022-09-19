@@ -28,8 +28,8 @@ class GetBankCardNumber(object):
 
         if bankName in bankList:
 
-            for x in range(9):
-                tempMidnum = tempMidnum + str(random.randint(0, 12))
+            for x in range(12):
+                tempMidnum = tempMidnum + str(random.randint(0, 9))
                 x = x
             self.midNum = tempMidnum
 
