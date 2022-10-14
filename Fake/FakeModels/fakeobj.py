@@ -25,6 +25,7 @@ class FakeInfo(object):
         self.birthday = ""
         self.age = ""
         self.idCard = ""
+        self.areaId = ""
 
         self.getBankCardNumber = lambda: GetBankCardNumber().getBankCardNumber(bankName=self.bankName)
         self.getfake = lambda: Faker(locale=self.locale)
@@ -39,13 +40,17 @@ class FakeInfo(object):
     #     return Faker(locale=self.locale)
     def run(self):
         idCard = IdNumber.generate_id()
+
+        idObj = IdNumber(idCard)
+
         self.name = self.getfake().name()
         # self.ssn = self.getfake().ssn()
         self.idCard = idCard
         # self.address = self.getfake().address()
-        self.address = IdNumber(idCard).get_area_name()
-        self.birthday = IdNumber(idCard).get_birthday()
-        self.age = IdNumber(idCard).get_age()
+        self.address = idObj.get_area_name()
+        self.birthday = idObj.get_birthday()
+        self.age = idObj.get_age()
+        self.areaId = idObj.area_id()
         self.company = self.getfake().company()
         self.email = self.getfake().email()
         self.phoneNumber = self.getfake().phone_number()

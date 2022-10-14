@@ -29,6 +29,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -59,7 +60,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # 'DIRS': [BASE_DIR / 'templates'],
-        'DIRS': [BASE_DIR / 'app/dist'],
+        'DIRS': [BASE_DIR / 'frontend/dist'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,8 +86,8 @@ DATABASES = {
         'NAME': 'Lyb',  # 数据库名称
         'USER': 'root',  # 数据库登录用户名
         'PASSWORD': '123456',  # 密码
-        'HOST': '172.17.0.2',
-        # 'HOST': '127.0.0.1',  # 数据库主机IP，如保持默认，则为127.0.0.1
+        # 'HOST': '172.17.0.2',
+        'HOST': '127.0.0.1',  # 数据库主机IP，如保持默认，则为127.0.0.1
         'PORT': 3306,
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
@@ -116,15 +117,20 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+# USE_TZ = True
+
+# 修改project的setting文件
+LANGUAGE_CODE = 'zh-hans'
+TIME_ZONE = 'Asia/Shanghai'
+USE_TZ = False  # 这里务必调整为False，否则时区设置无效
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -132,7 +138,8 @@ USE_TZ = True
 STATIC_URL = '/static/'  # 别名
 STATICFILES_DIRS = [
     # os.path.join(BASE_DIR, "testP/statics"),
-    os.path.join(BASE_DIR, "app/dist/static"),
+    # os.path.join(BASE_DIR, "frontend/dist/static"),
+    os.path.join(BASE_DIR, "static"),
 
 ]
 
@@ -143,8 +150,56 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_ALLOW_ALL = True  # add for vue
 
-
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # REST_FRAMEWORK = {
 #     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
 #     'PAGE_SIZE': 4,  # 表示每页显示3条数据
 # }
+
+SIMPLEUI_CONFIG = {
+    'system_keep': False,
+    'menu_display': ['我的项目', '权限认证','主页',],      # 开启排序和过滤功能, 不填此字段为默认排序和全部显示, 空列表[] 为全部不显示.
+    'dynamic': True,    # 设置是否开启动态菜单, 默认为False. 如果开启, 则会在每次用户登陆时动态展示菜单内容
+    'menus': [
+        {
+        'name': '我的项目',
+        'icon': 'fab fa-apple',
+        'url': 'http://127.0.0.1:8000'  # 咱们用自己的
+    },
+        {
+        'app': 'auth',
+        'name': '权限认证',
+        'icon': 'fas fa-user-shield',
+        'models': [
+            {
+            'name': '用户',
+            'icon': 'fa fa-user',
+            'url': 'auth/user/'
+        },
+            {
+            'name': '组',
+            'icon': 'fa fa-user',
+            'url': 'auth/group/'
+        },
+            {
+                'name': '权限',
+                'icon': 'fa fa-user',
+                'url': 'auth/permission/'
+            }
+        ]
+    },
+        {
+            'app': 'home',
+            'name': '主页',
+            'icon': 'fas fa-user-shield',
+            'models': [
+                {
+                    'name': '轮播图',
+                    'icon': 'fa fa-user',
+                    'url': 'home/banner/'
+                },
+
+            ]
+        },
+ ]
+}

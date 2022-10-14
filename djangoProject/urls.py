@@ -42,15 +42,15 @@ urlpatterns = [
 
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger'),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    # path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 
     path('admin/', admin.site.urls),
-    path('ClearMobileLimit/', clear_verification_code_limit.del_limiter_counter),
-    path('index/', index.index_page),
-    path('generate_user_information/', testP.api.generate_user_information.generate_user_information),
-    path('generate_user_information1/', testP.api.generate_user_information2.generate_user_information1),
-    path('generate_user_information2/', testP.api.generate_user_information2.generate_user_information2),
-    url(r'generate_user_information3/', testP.api.generate_user_information2.generate_user_information3),
+    # path('ClearMobileLimit/', clear_verification_code_limit.del_limiter_counter),
+    # path('index/', index.index_page),
+    # path('generate_user_information/', testP.api.generate_user_information.generate_user_information),
+    # path('generate_user_information1/', testP.api.generate_user_information2.generate_user_information1),
+    # path('generate_user_information2/', testP.api.generate_user_information2.generate_user_information2),
+    # url(r'generate_user_information3/', testP.api.generate_user_information2.generate_user_information3),
     # url(r'^$', TemplateView.as_view(template_name="index.html")),
     # url(r'^lyb_detail2/(?P<pk>[0-9]+)/$', lyb_detail),
 
@@ -58,7 +58,7 @@ urlpatterns = [
 
     path(r'lyb/', include("Lyb.urls")),
 
-    url(r'^$', TemplateView.as_view(template_name="index.html")),
+    # url(r'^$', TemplateView.as_view(template_name="index.html")),
 
 
 

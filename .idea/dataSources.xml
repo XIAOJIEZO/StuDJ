@@ -8,7 +8,7 @@
       <jdbc-url>jdbc:mysql://10.60.210.18:3306</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="@10.60.210.19" uuid="65fe52ce-6b77-4ad8-8fe7-95e118ba9c2d">
+    <data-source source="LOCAL" name="UMP-Test" uuid="65fe52ce-6b77-4ad8-8fe7-95e118ba9c2d">
       <driver-ref>oracle.19</driver-ref>
       <synchronize>true</synchronize>
       <auto-commit>false</auto-commit>
@@ -39,6 +39,14 @@
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="UMP-Pro" uuid="7c0042b3-5ad3-412e-83ef-34f943590a8b">
+      <driver-ref>oracle.19</driver-ref>
+      <synchronize>true</synchronize>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@//10.60.17.100:1521/orac11g</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

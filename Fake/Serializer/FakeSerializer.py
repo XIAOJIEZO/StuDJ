@@ -16,6 +16,7 @@ class FakeSerializer(serializers.Serializer):
     company = serializers.CharField(max_length=50)
     bankName = serializers.CharField(max_length=50)
     bankCardNumber = serializers.CharField(max_length=50)
+    areaId = serializers.CharField(max_length=50)
 
 
 
