@@ -23,10 +23,12 @@ def fakeinfo(request):
     locale = request.data.get('locale')
     bankName = request.data.get('bankName')
 
-    if bankName:
-        pass
-    else:
-        bankName = '招商银行'
+
+    # if bankName:
+    #     pass
+    # else:
+    #     bankName = '招商银行'
+
 
     if locale:
         fake = fakeobj.FakeInfo(locale=locale, bankName=bankName)

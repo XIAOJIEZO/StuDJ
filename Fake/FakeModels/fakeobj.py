@@ -4,7 +4,7 @@
 # @Author  : XIAOJIEZI
 
 from faker import Faker
-from utils.BankCardNumber import GetBankCardNumber
+from utils.bank_card_utils.BankCardNumber import GetBankCardNumber
 from utils.id_number_util.identity import IdNumber
 
 
@@ -27,7 +27,7 @@ class FakeInfo(object):
         self.idCard = ""
         self.areaId = ""
 
-        self.getBankCardNumber = lambda: GetBankCardNumber().getBankCardNumber(bankName=self.bankName)
+        self.getBankCardNumber = lambda: GetBankCardNumber()
         self.getfake = lambda: Faker(locale=self.locale)
 
         self.run()
@@ -50,9 +50,10 @@ class FakeInfo(object):
         self.address = idObj.get_area_name()
         self.birthday = idObj.get_birthday()
         self.age = idObj.get_age()
-        self.areaId = idObj.area_id()
+        # self.areaId = idObj.area_id()
         self.company = self.getfake().company()
         self.email = self.getfake().email()
         self.phoneNumber = self.getfake().phone_number()
-        self.bankCardNumber = self.getBankCardNumber()
+        self.bankCardNumber = self.getBankCardNumber().getBankCardNumber(bankName=self.bankName)[0]
+        self.bankName = self.getBankCardNumber().getBankCardNumber(bankName=self.bankName)[1]
 

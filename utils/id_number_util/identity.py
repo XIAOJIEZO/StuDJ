@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Python version 2.7.13 or 3.7.2
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import random
 import re
@@ -44,7 +48,12 @@ class IdNumber(str):
 
     def get_sex(self):
         """通过身份证号获取性别， 女生：0，男生：1"""
-        return int(self.id[16:17]) % 2
+        sex = int(self.id[16:17]) % 2
+
+        if sex:
+            return '男'
+
+        return '女'
 
     def get_check_digit(self):
         """通过身份证号获取校验码"""
