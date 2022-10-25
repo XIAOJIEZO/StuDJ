@@ -50,7 +50,7 @@ class FakeInfo(object):
         self.address = idObj.get_area_name()
         self.birthday = idObj.get_birthday()
         self.age = idObj.get_age()
-        # self.areaId = idObj.area_id()
+        self.areaId = idObj.area_id
         self.company = self.getfake().company()
         self.email = self.getfake().email()
         self.phoneNumber = self.getfake().phone_number()
